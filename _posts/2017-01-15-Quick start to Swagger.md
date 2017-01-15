@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Quick start to Swagger
-image: /img/REST_api_docs_image.png
 tags: [swagger, rest api documentation, jersey]
 ---
 
@@ -34,7 +33,7 @@ compile group: 'io.swagger', name: 'swagger-jersey2-jaxrs', version: '1.5.12'
 compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
 ```
 
-2. Swagger resource classes
+1. Swagger resource classes
 
 In order to integrate swagger-core with your application we need to add swagger resource classes
 to custom Application subclass.
@@ -48,7 +47,7 @@ RESTApplication restApplication = new RESTApplication(resourceObjs);
 ResourceConfig resourceConfig = ResourceConfig.forApplication(restApplication);
 ```
 
-3. Configure and initialize the Swagger definition within your application
+1. Configure and initialize the Swagger definition within your application
 
 ``` java
 //Swagger bootstrap
@@ -66,7 +65,7 @@ beanConfig.setScan(true);
 swagger.json is generated at the end of this step at this location:
 `// swagger json url: http://localhost:9797/swagger.json`
 
-4. Add CORS support 
+1. Add CORS support 
 
 We need to add CORS suppport on the server side for accepting requests.
 Use jersey filters to add these header to your response objects.
@@ -78,11 +77,11 @@ responseContext.getHeaders().add("Access-Control-Allow-Headers","Content-Type, a
 responseContext.getHeaders().add("Access-Control-Max-Age","1800");
 ```
         
-5. Load swagger UI
+1. Load swagger UI
 
 Clone the git directory https://github.com/swagger-api/swagger-ui.git or download zip. Run the index.html file from /dist folder
 
-6. Load your swagger.json 
+1. Load your swagger.json 
 
 Replace swagger.json url into the URL in place of default petstore URL.
 
