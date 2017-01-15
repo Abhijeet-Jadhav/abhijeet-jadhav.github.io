@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Quick start to Swagger
-image: /img/abhi_1.jpg
 tags: [swagger, rest api documentation, jersey]
 ---
 
@@ -27,20 +26,77 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
 
-**4 Steps to integrate swagger into rest api:**
+**4 Steps to integrate swagger into rest api: Setup using jersey**
 
-1. setup using jersey
+1. Add dependencies to build.gradle 
 
-https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-Jersey-2.X-Project-Setup-1.5
+`compile group: 'io.swagger', name: 'swagger-jersey2-jaxrs', version: '1.5.12'`
 
-at the end of this step swagger.json will be generated
+`compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'`
 
-2. clone the git directory 
-run the index.html file
+2. In order to integrate swagger-core with your application we need to add swagger resource classes
+to custom Application subclass.
 
-3. load your swagger.json location into the URL
+`Set<Object> resourceObjs = new HashSet<Object>();
 
-4. add CORS support on the server side by sending requests
+`resourceObjs.add(new ResourceClass());`
 
-make rest calls from UI
+`resourceObjs.add(new ApiListingResource()); // swagger resource class` 
+
+`resourceObjs.add(new SwaggerSerializers()); // swagger resource class`
+
+`RESTApplication restApplication = new RESTApplication(resourceObjs);`
+
+`ResourceConfig resourceConfig = ResourceConfig.forApplication(restApplication);`
+
+3. Configure and initialize the Swagger definition within your application
+
+
+
+`//Swagger bootstrap`
+
+`BeanConfig beanConfig = new BeanConfig();`
+
+`beanConfig.setTitle("Pravega Controller REST API");`
+
+`beanConfig.setDescription("Description");`
+
+`beanConfig.setVersion("1.0.2");`
+
+`beanConfig.setSchemes(new String[]{"http"});`
+
+`beanConfig.setHost("localhost:9797");`
+
+`beanConfig.setBasePath("");`
+
+`beanConfig.setResourcePackage("resourceImpl");`
+
+`beanConfig.setScan(true);`
+
+swagger.json is generated at the end of this step
+
+`// swagger json url: http://localhost:9797/swagger.json`
+
+4. Add CORS support on the server side by sending requests
+
+Use jersey filters to add these header to your response objects.
+
+`responseContext.getHeaders().add("Access-Control-Allow-Origin","*");`
+
+`responseContext.getHeaders().add("Access-Control-Allow-Methods","POST, GET, DELETE, PUT, OPTIONS");`
+
+`responseContext.getHeaders().add("Access-Control-Allow-Headers","Content-Type, api_key, Authorization, x-requested-with, Total-Count, Total-Pages, Error-Message");`
+
+`responseContext.getHeaders().add("Access-Control-Max-Age","1800");`
+
+        
+5. Clone the git directory https://github.com/swagger-api/swagger-ui.git or download zip 
+
+Run the index.html file from /dist folder
+
+6. Load your swagger.json location into the URL in place of default petstore URL
+
+Visualize your REST API documentation and start making REST calls.
+ 
+Cheers! 
 

@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://username.github.io"
+url: "http://abhijeet-jadhav.github.io"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -23,7 +23,7 @@ description: Blogs, Notes and Quick Start guides
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "Hi, I am Abhijeet Jadhav. Graduated from BITS Pilani Goa Campus with Computer Science major and currently a developer at Dell-EMC Corp Bangalore"
+  About Me: "Hi, I am Abhijeet Jadhav. Graduated from BITS Pilani Goa Campus with majors in Computer Science  and currently working as a software developer at Dell-EMC Corp Bangalore"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
@@ -155,7 +155,7 @@ prose:
   rooturl: '_posts'
   media: 'img'
   ignore:
-    - 404.html
+    - hello.html
     - LICENSE
     - feed.xml
     - _config.yml
