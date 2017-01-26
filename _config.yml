@@ -23,11 +23,10 @@ description: Blogs, Notes and Quick Start guides
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "Hi, I am Abhijeet Jadhav. Graduated from BITS Pilani Goa Campus with majors in Computer Science  and currently working as a software developer at Dell-EMC Corp Bangalore"
+  About Me: "hello.html"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
+    - GitHub: "https://github.com/Abhijeet-Jadhav"
   Author's home: "http://abhijeet-jadhav.github.io"
 
 # Image to show in the navigation bar - image must be a square (width = height)
