@@ -5,7 +5,6 @@ tags: [swagger, rest api documentation, jersey]
 ---
 
 
-# Swagger 
 Swagger is a specification and framework implementation for describing and visualizing RESTful web services.
 The specifications can be written in either JSON or YAML. In this blog we will generate swagger.json file accordingly. 
 
